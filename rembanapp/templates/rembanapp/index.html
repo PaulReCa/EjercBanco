@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h1>Lista de Usuarios</h1>
+
+{% if listaUsuarios %}
+    <ul>
+    {% for usuario in listaUsuarios %}
+        <li><a href="{% url 'rembanapp:detail' usuario.id %}">{{ usuario }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay usuarios.</p>
+{% endif %}
+
+</body>
+</html>
