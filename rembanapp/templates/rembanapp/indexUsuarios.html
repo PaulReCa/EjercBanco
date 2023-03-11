@@ -9,7 +9,7 @@
 {% if listaUsuarios %}
     <ul>
     {% for usuario in listaUsuarios %}
-        <li><a href="{% url 'rembanapp:detail' usuario.id %}">{{ usuario }}</a></li>
+        <li><a href="{% url 'rembanapp:detailUsuarios' usuario.id %}">{{ usuario }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

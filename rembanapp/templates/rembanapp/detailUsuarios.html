@@ -9,7 +9,20 @@
     <h4>Apellidos: {{ usuario.Apellidos }}</h4>
     <p>Email: {{ usuario.Email }}</p>
     <p>Telefono: {{ usuario.Telefono }}</p>
+    <p>Id: {{ usuario.id }}</p>
 </div>
+
+<h2>Órdenes de {{ usuario }}</h2>
+
+{% if ordenes %}
+    <ul>
+        {% for orden in ordenes %}
+            <li>{{ orden }} </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay ordenes de este Usuario.</p>
+{% endif %}
 
 </body>
 </html>

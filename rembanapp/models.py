@@ -20,4 +20,4 @@ class Orden(models.Model):
   Banco = models.CharField(max_length=50, blank=False, null=False)
 
   def __str__(self):
-    return f"{self.Cantidad} {self.Beneficiario}"
+    return f"{self.Cantidad}€ para {self.Beneficiario}"
