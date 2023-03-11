@@ -1,2 +1,5 @@
 secret_key.txt
 __pycache__/
+rembanapp/__pycache__/urls.cpython-39.pyc
+rembanapp/__pycache__/views.cpython-39.pyc
+remesas/__pycache__/urls.cpython-39.pyc
