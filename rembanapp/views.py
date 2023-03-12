@@ -1,9 +1,17 @@
-from django.http import HttpResponseRedirect
+from django.template import loader
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
 
 from .models import Usuario, Orden
+
+# class Main(generic.View):
+#     template_name='rembanapp/main.html'
+
+def main(request):
+  template = loader.get_template('rembanapp/main.html')
+  return HttpResponse(template.render())
 
 
 class IndexViewUsuarios(generic.ListView):
@@ -13,7 +21,15 @@ class IndexViewUsuarios(generic.ListView):
     def get_queryset(self):
         """Lista de Usuarios"""
         return Usuario.objects.all()
-    
+
+class IndexViewOrdenes(generic.ListView):
+    template_name = 'rembanapp/indexOrdenes.html'
+    context_object_name = 'listaOrdenes'
+
+    def get_queryset(self):
+        """Lista de Ordenes"""
+        return Orden.objects.all()
+
 class DetailViewUsuarios(generic.DetailView):
     model = Usuario
     template_name = 'rembanapp/detailUsuarios.html'
@@ -25,3 +41,7 @@ class DetailViewUsuarios(generic.DetailView):
         ordenes = Orden.objects.filter(usuario=usuario)
         context['ordenes'] = ordenes
         return context
+    
+class DetailViewOrdenes(generic.DetailView):
+    model = Orden
+    template_name = 'rembanapp/detailOrdenes.html'

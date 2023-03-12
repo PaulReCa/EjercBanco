@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Detalles la Orden</h1>
+
+<div > 
+    <h3>Usuario: {{ orden.usuario }}</h3>
+    <p>Cantidad: {{ orden.Cantidad}}€</p>
+    <p>Beneficiario: {{ orden.Beneficiario }}</p>
+    <p>Numero de cuenta: {{ orden.NumCuenta }}</p>
+    <p>Concepto: {{ orden.Concepto }}</p>
+    <p>Banco: {{ orden.Banco }}</p>
+    <p>Id Orden: {{ orden.id }}</p>
+</div>
+
+{% comment %} <h2>Órdenes de {{ orden }}</h2>
+
+{% if ordenes %}
+    <ul>
+        {% for orden in ordenes %}
+            <li>{{ orden }} </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay ordenes de este Usuario.</p>
+{% endif %} {% endcomment %}
+
+</body>
+</html>

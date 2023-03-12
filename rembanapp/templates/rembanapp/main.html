@@ -3,18 +3,18 @@
 
 <body>
 
-<h1>Inicio</h1>
+<h1>INICIO</h1>
 
-<div class="main"> <!-- se hace el div por lo de los Estilos -->
-    <h1>rembanapp</h1>
+<div > <!-- se hace el div por lo de los Estilos -->
 
-    <h3>rembanapp</h3>
-  
-    <p><a href="rembanapp/">rembanapp</a></p>
+    <h4><a href="{% url 'rembanapp:indexUsuarios' %}">Lista de Usuarios</a></h4>
+    <h3><a href="/rembanapp/indexUsuarios">Lista de Usuarios</a></h3>
 
-    <h3>Admin</h3>
-  
-    <p><a href="admin/">Admin</a></p>
+    <br> </br>
+    {% comment %} <p>&nbsp;</p> {% endcomment %}
+    
+    <h4><a href="{% url 'rembanapp:indexOrdenes' %}">Lista de Ordenes</a></h4>
+    <h3><a href="/rembanapp/indexOrdenes">Lista de Ordenes</a></h3>
     
 </div>
 

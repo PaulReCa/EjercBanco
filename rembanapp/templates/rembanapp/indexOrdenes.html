@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h1>Lista de Ordenes</h1>
+
+{% if listaOrdenes %}
+    <ul>
+    {% for orden in listaOrdenes %}
+        <li><a href="{% url 'rembanapp:detailOrdenes' orden.id %}">{{ orden }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay ordenes.</p>
+{% endif %}
+
+</body>
+</html>

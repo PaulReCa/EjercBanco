@@ -8,5 +8,5 @@ class UsuarioAdmin(admin.ModelAdmin):
 admin.site.register(Usuario, UsuarioAdmin)
 
 class OrdenAdmin(admin.ModelAdmin):
-  list_display = ("Cantidad", "NumCuenta", "Beneficiario", "Banco","id",)
+  list_display = ("Cantidad", "NumCuenta", "Beneficiario", "Banco","id","usuario",)
 admin.site.register(Orden, OrdenAdmin)
