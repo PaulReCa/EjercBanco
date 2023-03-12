@@ -45,3 +45,11 @@ class DetailViewUsuarios(generic.DetailView):
 class DetailViewOrdenes(generic.DetailView):
     model = Orden
     template_name = 'rembanapp/detailOrdenes.html'
+
+    # Para que aparezca el link al Usuario de la Orden
+    def get_context_data(self, **kwargs): 
+        context = super().get_context_data(**kwargs)
+        orden = self.object
+        usuarios = Usuario.objects.filter(orden=orden)
+        context['usuarios'] = usuarios
+        return context

@@ -4,8 +4,11 @@
 
 <h1>Detalles la Orden</h1>
 
+{% for usuario in usuarios %}
+    <h3>Usuario: <a href="{% url 'rembanapp:detailUsuarios' usuario.id %}">{{ usuario }}</a></h3>
+{% endfor %}
+
 <div > 
-    <h3>Usuario: {{ orden.usuario }}</h3>
     <p>Cantidad: {{ orden.Cantidad}}€</p>
     <p>Beneficiario: {{ orden.Beneficiario }}</p>
     <p>Numero de cuenta: {{ orden.NumCuenta }}</p>
@@ -13,18 +16,6 @@
     <p>Banco: {{ orden.Banco }}</p>
     <p>Id Orden: {{ orden.id }}</p>
 </div>
-
-{% comment %} <h2>Órdenes de {{ orden }}</h2>
-
-{% if ordenes %}
-    <ul>
-        {% for orden in ordenes %}
-            <li>{{ orden }} </li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>No hay ordenes de este Usuario.</p>
-{% endif %} {% endcomment %}
 
 </body>
 </html>
