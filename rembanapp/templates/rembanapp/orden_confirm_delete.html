@@ -9,8 +9,9 @@
 
 <div>
     <form method="post">{% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Guardar">
+        <p>Estás seguro de querer borrar la Orden: "{{ object }}"?</p>
+        {{ form }}
+        <input type="submit" value="Confirmar">
     </form>
 </div>
 

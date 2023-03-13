@@ -2,6 +2,8 @@
 <html>
 <body>
 
+<a href="{% url 'rembanapp:main' %}">INICIO</a>
+
 <h1>Detalles la Orden</h1>
 
 {% for usuario in usuarios %}
@@ -16,6 +18,8 @@
     <p>Banco: {{ orden.Banco }}</p>
     <p>Id Orden: {{ orden.id }}</p>
 </div>
+
+<a href="{% url 'rembanapp:orden_confirm_delete' orden.id %}">Borrar Orden</a>
 
 </body>
 </html>

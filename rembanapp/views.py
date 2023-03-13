@@ -60,3 +60,17 @@ class UsuarioCreateView(CreateView):
     model = Usuario
     fields = '__all__'
     success_url='/rembanapp/indexUsuarios/'
+
+class OrdenCreateView(CreateView):
+    model = Orden
+    fields = '__all__'
+    success_url='/rembanapp/indexOrdenes/'
+
+class UsuarioDeleteView(DeleteView):
+    model = Usuario
+    # template_name = 'rembanapp/deleteUsuario.html'
+    success_url = '/rembanapp/indexUsuarios/'
+
+class OrdenDeleteView(DeleteView):
+    model = Orden
+    success_url = '/rembanapp/indexOrdenes/'

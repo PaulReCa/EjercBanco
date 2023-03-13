@@ -3,7 +3,10 @@
 
 <body>
 
+<a href="{% url 'rembanapp:main' %}">INICIO</a>
+
 <h1>Lista de Ordenes</h1>
+<h3><a href="/rembanapp/orden_form">Crear nueva Orden</a></h3>
 
 {% if listaOrdenes %}
     <ul>
