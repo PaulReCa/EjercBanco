@@ -1,3 +1,5 @@
+from audioop import reverse
+from django.urls import reverse
 from django.db import models
 
 class Usuario(models.Model):
@@ -8,6 +10,10 @@ class Usuario(models.Model):
 
   def __str__(self):
     return f"{self.Nombre} {self.Apellidos}"
+  
+  # def get_absolute_url(self):
+  #   return reverse('DetailViewUsuarios', kwargs={'pk': self.pk})
+  
   
 class Orden(models.Model):
 

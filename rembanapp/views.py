@@ -2,8 +2,10 @@ from django.template import loader
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
+from audioop import reverse
 from django.views import generic
-
+from django.urls import reverse_lazy
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from .models import Usuario, Orden
 
 # class Main(generic.View):
@@ -53,3 +55,8 @@ class DetailViewOrdenes(generic.DetailView):
         usuarios = Usuario.objects.filter(orden=orden)
         context['usuarios'] = usuarios
         return context
+
+class UsuarioCreateView(CreateView):
+    model = Usuario
+    fields = '__all__'
+    success_url='/rembanapp/indexUsuarios/'
