@@ -2,7 +2,7 @@ from django.template import loader
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
-from audioop import reverse
+# from audioop import reverse
 from django.views import generic
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
@@ -15,6 +15,7 @@ def main(request):
   template = loader.get_template('rembanapp/main.html')
   return HttpResponse(template.render())
 
+# -----------------------------------------------------------
 
 class IndexViewUsuarios(generic.ListView):
     template_name = 'rembanapp/indexUsuarios.html'
@@ -31,6 +32,8 @@ class IndexViewOrdenes(generic.ListView):
     def get_queryset(self):
         """Lista de Ordenes"""
         return Orden.objects.all()
+    
+# -----------------------------------------------------------
 
 class DetailViewUsuarios(generic.DetailView):
     model = Usuario
@@ -56,21 +59,51 @@ class DetailViewOrdenes(generic.DetailView):
         context['usuarios'] = usuarios
         return context
 
+# -----------------------------------------------------------
+
 class UsuarioCreateView(CreateView):
     model = Usuario
     fields = '__all__'
-    success_url='/rembanapp/indexUsuarios/'
+    # success_url='/rembanapp/indexUsuarios/'  
+    def get_success_url(self):
+        return reverse('rembanapp:detailUsuarios', kwargs={'pk': self.object.id})
 
 class OrdenCreateView(CreateView):
     model = Orden
     fields = '__all__'
-    success_url='/rembanapp/indexOrdenes/'
+    # success_url='/rembanapp/indexOrdenes/'  
+    def get_success_url(self):
+        return reverse('rembanapp:detailOrdenes', kwargs={'pk': self.object.id})
+
+# -----------------------------------------------------------
 
 class UsuarioDeleteView(DeleteView):
     model = Usuario
-    # template_name = 'rembanapp/deleteUsuario.html'
-    success_url = '/rembanapp/indexUsuarios/'
+    success_url = '/rembanapp/indexUsuarios/'  # *? hacer con get_absolute_url del modelo
+    # success_url = reverse_lazy('/rembanapp/indexUsuarios/')
 
 class OrdenDeleteView(DeleteView):
     model = Orden
-    success_url = '/rembanapp/indexOrdenes/'
+    success_url = '/rembanapp/indexOrdenes/'  # *? hacer con get_absolute_url del modelo
+    # success_url = reverse_lazy('/rembanapp/indexOrdenes/')
+
+# -----------------------------------------------------------
+
+class UsuarioUpdateView(UpdateView):
+    model = Usuario
+    fields = '__all__'
+    template_name_suffix = '_update_form'
+    # success_url = '/rembanapp/indexUsuarios/'
+
+    def get_success_url(self):
+        return reverse('rembanapp:detailUsuarios', kwargs={'pk': self.object.id})
+
+    # success_url = reverse_lazy('rembanapp:detailUsuarios', kwargs={'pk': self.object.id})
+
+class OrdenUpdateView(UpdateView):
+    model = Orden
+    fields = '__all__'
+    template_name_suffix = '_update_form'
+    def get_success_url(self):
+        return reverse('rembanapp:detailOrdenes', kwargs={'pk': self.object.id})
+

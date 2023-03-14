@@ -13,4 +13,6 @@ urlpatterns = [
     path('orden_form/', views.OrdenCreateView.as_view(), name='orden_form'),
     path('<int:pk>/usuario_confirm_delete/', views.UsuarioDeleteView.as_view(), name='usuario_confirm_delete'),
     path('<int:pk>/orden_confirm_delete/', views.OrdenDeleteView.as_view(), name='orden_confirm_delete'),
+    path('usuario_update_form/<int:pk>/', views.UsuarioUpdateView.as_view(), name='usuario_update_form'),
+    path('orden_update_form/<int:pk>/', views.OrdenUpdateView.as_view(), name='orden_update_form'),
 ]

@@ -2,7 +2,9 @@
 <html>
 <body>
 
-<a href="{% url 'rembanapp:main' %}">INICIO</a>
+<a href="{% url 'rembanapp:main' %}">INICIO</a> | 
+<a href="{% url 'rembanapp:indexOrdenes' %}">Ordenes</a> | 
+<a href="{% url 'rembanapp:indexUsuarios' %}">Usuarios</a>
 
 <h1>Detalles la Orden</h1>
 
@@ -19,6 +21,7 @@
     <p>Id Orden: {{ orden.id }}</p>
 </div>
 
+<a href="{% url 'rembanapp:orden_update_form' orden.id %}">Editar Orden</a> | 
 <a href="{% url 'rembanapp:orden_confirm_delete' orden.id %}">Borrar Orden</a>
 
 </body>

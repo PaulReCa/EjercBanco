@@ -4,16 +4,15 @@
 
 <div>
     <a href="{% url 'rembanapp:main' %}">INICIO</a> |
-    <a href="{% url 'rembanapp:indexUsuarios' %}">Usuarios</a> | 
-    <a href="{% url 'rembanapp:indexOrdenes' %}">Ordenes</a>
+    <a href="{% url 'rembanapp:indexUsuarios' %}">ATRAS</a>
 </div>
 
-<h1>Crear nuevo Usuario</h1>
+<h1>Editar datos del Usuario</h1>
 
 <div>
     <form method="post">{% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Guardar">
+        <input type="submit" value="Guardar cambios">
     </form>
 </div>
 

@@ -7,13 +7,12 @@
     <a href="{% url 'rembanapp:indexOrdenes' %}">ATRAS</a>
 </div>
 
-<h1>Borrar Orden</h1>
+<h1>Editar datos de la Orden</h1>
 
 <div>
     <form method="post">{% csrf_token %}
-        <p>Estás seguro de querer borrar la Orden: "{{ object }}"?</p>
-        {{ form }}
-        <input type="submit" value="Confirmar">
+        {{ form.as_p }}
+        <input type="submit" value="Guardar cambios">
     </form>
 </div>
 
